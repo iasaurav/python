@@ -1,0 +1,9 @@
+function dhanOrder(security_id, exchange_segment, transaction_type, quantity, order_type, product_type, price) {
+  return "dhan.place_order(Security ID: " + security_id + ", " +
+    "Exchange Segment: " + exchange_segment + ", " +
+    "Transaction Type: " + transaction_type + ", " +
+    "Quantity: " + quantity + ", " +
+    "Order Type: " + order_type + ", " +
+    "Product Type: " + product_type + ", " +
+    "Price: " + price+")";
+  }
