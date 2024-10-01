@@ -1,6 +1,19 @@
+function artist(a,b,c,d,e,f,g,h) {
+let security_id="security_id='"+a+"',";
+  let exchange_segment="exchange_segment=dhan."+b+",";
+let transaction_type="transaction_type=dhan."+c+",";
+let quantity= d+",";
+let order_type="order_type"+e+",";
+let product_type="product_type=dhan."+f+",";
+let price= g+",)";
+  return security_id+exchange_segment+transaction_type+quantity+order_type+product_type+price;
+  }
+
+
+
 function dhanOrder(security_id, exchange_segment, transaction_type, quantity, order_type, product_type, price) {
   return "dhan.place_order(security_id='" + security_id + "', " +
-    "exchange_segment=dhan." + exchange_segment + ", " +
+    "" + exchange_segment + ", " +
     "transaction_type=dhan." + transaction_type + ", " +
     "quantity=" + quantity + ", " +
     "order_type=dhan." + order_type + ", " +
