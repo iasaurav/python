@@ -10,8 +10,16 @@
     
     <form id="orderForm">
         <label for="security_id">Security ID:</label>
-        <input type="text" id="security_id" name="security_id" required><br><br>
+       
+        
+<label for="browser">Choose your browser from the list:</label>
+<input list="browsers" name="security_id" id="browser">
 
+<datalist id="json">
+  
+</datalist>
+        
+        
         <label for="exchange_segment">Exchange Segment:</label>
         <select id="exchange_segment" name="exchange_segment">
             
@@ -50,6 +58,9 @@
     <textarea id="output" rows="10" cols="50"></textarea>
 
     <script>
+
+
+        
         function createOrder() {
             const security_id = document.getElementById('security_id').value;
             const exchange_segment = document.getElementById('exchange_segment').value;
@@ -69,6 +80,36 @@
 
             document.getElementById('output').value = orderOutput;
         }
+//https://docs.google.com/spreadsheets/d//edit?gid=1262794092#gid=1262794092//
+var id='1gNqdRC3Ars9Z8qhQHtiJ9FiVExcsIt8Gfn9SNRGFm_o';
+var gid = '1262794092';
+var source='O1:O';
+var url = 'https://docs.google.com/spreadsheets/d/'+id+'/gviz/tq?tqx=out:json&tq&gid='+gid+'&single=true&range='+source;
+fetch(url)
+  .then(response => response.text())
+  .then(data => document.getElementById("json").innerHTML=myItems(data.slice(47, -2))  
+  );
+function myItems(jsonString){
+  var json = JSON.parse(jsonString);
+  var table = ""
+ json.table.cols.forEach(colonne => table += '' + colonne.label + "")
+  table += ''
+  json.table.rows.forEach(ligne => {
+    table += ''
+    ligne.c.forEach(cellule => {
+        try{var valeur = cellule.f ? cellule.f : cellule.v}
+        catch(e){var valeur = ''}
+        table += "" + valeur + ""
+      }
+    )
+    table += ''
+    }
+  )
+  table += ''
+  return table
+}
+
+        
     </script>
 </body>
 </html>
