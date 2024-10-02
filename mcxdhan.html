@@ -6,7 +6,7 @@
     <title>Place Order Form</title>
 </head>
 <body>
-    <h2>MCXPlace Order Form</h2>
+    <h2>Place Order Form</h2>
     
     <form id="orderForm">
         <label for="security_id">Security ID:</label>
@@ -14,10 +14,9 @@
 
         <label for="exchange_segment">Exchange Segment:</label>
         <select id="exchange_segment" name="exchange_segment">
-       
-         
+            
             <option value="MCX">MCX</option>
-           
+            
         </select><br><br>
 
         <label for="transaction_type">Transaction Type:</label>
@@ -60,7 +59,8 @@
             const product_type = document.getElementById('product_type').value;
             const price = document.getElementById('price').value;
 
-            const orderOutput = `dhan.place_order(${security_id}
+            const orderOutput = `dhan.place_order(security_id='${security_id}', 
+    exchange_segment=dhan.${exchange_segment},
     transaction_type=dhan.${transaction_type},
     quantity=${quantity},
     order_type=dhan.${order_type},
