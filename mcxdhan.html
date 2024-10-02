@@ -10,15 +10,19 @@
     
     <form id="orderForm">
         <label for="security_id">Security ID:</label>
-       
-        
-<label for="browser">Choose your browser from the list:</label>
-<input list="browsers" name="security_id" id="browser">
+<div id="json"></div><br><br>
+         <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+      <label for="price">Price:</label>
 
-<datalist id="json">
-  
-</datalist>
-        
+        <input type="number" id="price" name="price" step="0.01" value="0"><br><br>
+      <label for="transaction_type">Transaction Type:</label>
+        <select id="transaction_type" name="transaction_type">
+            <option value="BUY">BUY</option>
+            <option value="SELL">SELL</option>
+        </select><br><br>
+      
+      
         
         <label for="exchange_segment">Exchange Segment:</label>
         <select id="exchange_segment" name="exchange_segment">
@@ -27,14 +31,9 @@
             
         </select><br><br>
 
-        <label for="transaction_type">Transaction Type:</label>
-        <select id="transaction_type" name="transaction_type">
-            <option value="BUY">BUY</option>
-            <option value="SELL">SELL</option>
-        </select><br><br>
+        
 
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" required><br><br>
+       
 
         <label for="order_type">Order Type:</label>
         <select id="order_type" name="order_type">
@@ -48,8 +47,7 @@
             <option value="DELIVERY">DELIVERY</option>
         </select><br><br>
 
-        <label for="price">Price:</label>
-        <input type="number" id="price" name="price" step="0.01" value="0"><br><br>
+        
 
         <button type="button" onclick="createOrder()">Create Order</button>
     </form>
@@ -80,10 +78,11 @@
 
             document.getElementById('output').value = orderOutput;
         }
+        
 //https://docs.google.com/spreadsheets/d//edit?gid=1262794092#gid=1262794092//
 var id='1gNqdRC3Ars9Z8qhQHtiJ9FiVExcsIt8Gfn9SNRGFm_o';
 var gid = '1262794092';
-var source='O1:O';
+var source='O1:O1';
 var url = 'https://docs.google.com/spreadsheets/d/'+id+'/gviz/tq?tqx=out:json&tq&gid='+gid+'&single=true&range='+source;
 fetch(url)
   .then(response => response.text())
