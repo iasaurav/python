@@ -62,8 +62,7 @@
             const product_type = document.getElementById('product_type').value;
             const price = document.getElementById('price').value;
 
-            const orderOutput = `dhan.place_order(security_id='${security_id}', 
-    exchange_segment=dhan.${exchange_segment},
+            const orderOutput = `dhan.place_order(${security_id}
     transaction_type=dhan.${transaction_type},
     quantity=${quantity},
     order_type=dhan.${order_type},
