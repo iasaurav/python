@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order Form</title>
+</head>
+<body>
+    <h2>Place Order Form</h2>
+    
+    <form id="orderForm">
+        <label for="security_id">Security ID:</label>
+        <input type="text" id="security_id" name="security_id" required><br><br>
+
+        <label for="exchange_segment">Exchange Segment:</label>
+        <select id="exchange_segment" name="exchange_segment">
+            <option value="NSE">NSE</option>
+            <option value="BSE">BSE</option>
+            <option value="MCX">MCX</option>
+            <option value="NSE_FNO">NSE Futures & Options</option>
+	<option value="BSE_FNO">BSE Futures & Options</option>
+	<option value="CUR">CUR</option>
+        </select><br><br>
+
+        <label for="transaction_type">Transaction Type:</label>
+        <select id="transaction_type" name="transaction_type">
+            <option value="BUY">BUY</option>
+            <option value="SELL">SELL</option>
+        </select><br><br>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+
+        <label for="order_type">Order Type:</label>
+        <select id="order_type" name="order_type">
+            <option value="MARKET">MARKET</option>
+            <option value="LIMIT">LIMIT</option>
+        </select><br><br>
+
+        <label for="product_type">Product Type:</label>
+        <select id="product_type" name="product_type">
+            <option value="INTRA">INTRA</option>
+            <option value="DELIVERY">DELIVERY</option>
+        </select><br><br>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" value="0"><br><br>
+
+        <button type="button" onclick="createOrder()">Create Order</button>
+    </form>
+
+    <h3>Order Output</h3>
+    <textarea id="output" rows="10" cols="50"></textarea>
+
+    <script>
+        function createOrder() {
+            const security_id = document.getElementById('security_id').value;
+            const exchange_segment = document.getElementById('exchange_segment').value;
+            const transaction_type = document.getElementById('transaction_type').value;
+            const quantity = document.getElementById('quantity').value;
+            const order_type = document.getElementById('order_type').value;
+            const product_type = document.getElementById('product_type').value;
+            const price = document.getElementById('price').value;
+
+            const orderOutput = `dhan.place_order(security_id='${security_id}', 
+    exchange_segment=dhan.${exchange_segment},
+    transaction_type=dhan.${transaction_type},
+    quantity=${quantity},
+    order_type=dhan.${order_type},
+    product_type=dhan.${product_type},
+    price=${price})`;
+
+            document.getElementById('output').value = orderOutput;
+        }
+    </script>
+</body>
+</html>
