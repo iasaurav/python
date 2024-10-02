@@ -1,0 +1,26 @@
+import pandas as pd
+
+# Load the CSV file
+flie_path = 'https://api.kite.trade/instruments'
+df = pd.read_csv('flie_path')
+
+# Convert 'segment' and 'name' columns to uppercase for filtering
+df['segment'] = df['segment'].str.upper()
+df['name'] = df['name'].str.upper()
+
+# Filter for 'NFO-OPT' with names 'NIFTY', 'BANKNIFTY', 'FINNIFTY'
+nfo_opt_filter = (df['segment'] == 'NFO-OPT') & (df['name'].isin(['NIFTY', 'BANKNIFTY', 'FINNIFTY']))
+
+# Filter for 'BFO-OPT' with names 'SENSEX', 'BANKEX'
+bfo_opt_filter = (df['segment'] == 'BFO-OPT') & (df['name'].isin(['SENSEX', 'BANKEX']))
+
+# Filter for 'MCX-OPT' with name 'CRUDEOIL'
+mcx_opt_filter = (df['segment'] == 'MCX-OPT') & (df['name'] == 'CRUDEOIL')
+
+# Combine all filters
+filtered_df = df[nfo_opt_filter | bfo_opt_filter | mcx_opt_filter]
+
+# Save the filtered DataFrame to a new Excel file
+filtered_df.to_csv('filtered_data.csv', index=False)
+filtered_df.to_excel('filtered_data.xlsx', index=False)
+print(filtered_df.to_string())
