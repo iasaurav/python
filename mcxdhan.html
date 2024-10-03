@@ -24,12 +24,7 @@
       
       
         
-        <label for="exchange_segment">Exchange Segment:</label>
-        <select id="exchange_segment" name="exchange_segment">
-            
-            <option value="MCX">MCX</option>
-            
-        </select><br><br>
+        
 
         
 
@@ -61,7 +56,6 @@
         
         function createOrder() {
             const security_id = document.getElementById('security_id').value;
-            const exchange_segment = document.getElementById('exchange_segment').value;
             const transaction_type = document.getElementById('transaction_type').value;
             const quantity = document.getElementById('quantity').value;
             const order_type = document.getElementById('order_type').value;
@@ -81,8 +75,8 @@ let exchange = security_id.split('@')[0];
         
 //https://docs.google.com/spreadsheets/d//edit?gid=1262794092#gid=1262794092//
 var id='1gNqdRC3Ars9Z8qhQHtiJ9FiVExcsIt8Gfn9SNRGFm_o';
-var gid = '1262794092';
-var source='O1:O1';
+var gid = '689840660';
+var source='J1:J1';
 var url = 'https://docs.google.com/spreadsheets/d/'+id+'/gviz/tq?tqx=out:json&tq&gid='+gid+'&single=true&range='+source;
 fetch(url)
   .then(response => response.text())
