@@ -10,6 +10,7 @@
     
     <form id="orderForm">
         <label for="security_id">Security ID:</label>
+        <input list="browsers" name="browser" id="browser">
 <div id="json"></div><br><br>
          <label for="quantity">Quantity:</label>
         <input type="number" id="quantity" name="quantity" required><br><br>
@@ -84,7 +85,7 @@ fetch(url)
   );
 function myItems(jsonString){
   var json = JSON.parse(jsonString);
-  var table = ""
+  var table = "<datalist id='browsers'>"
  json.table.cols.forEach(colonne => table += '' + colonne.label + "")
   table += ''
   json.table.rows.forEach(ligne => {
@@ -98,7 +99,7 @@ function myItems(jsonString){
     table += ''
     }
   )
-  table += ''
+  table += '</datalist>'
   return table
 }
 
