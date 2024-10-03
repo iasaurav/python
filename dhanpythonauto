@@ -2,9 +2,12 @@ function arst(a,b) {
   let security_id="<input id='security_id'value='"+a+"'readonly>";
 let exchange_segment="<input id='exchange_segment'value='"+b+"'readonly>";
 let transaction_type="<select id='transaction_type'>"+"<option value='BUY'>BUY</option>"+"<option value='SELL'>SELL</option>";
-let quantity="<input id='quantity'placeholder='NUMBER'>";
-let order_type="<select id='order_type'>"+"<option value='BUY'>BUY</option>"+"<option value='SELL'>SELL</option>";
-let product_type="<select id='transaction_type'>"+"<option value='BUY'>BUY</option>"+"<option value='SELL'>SELL</option>";
-let price="<input id='price'type='number'>";
+let quantity="<input id='quantity'placeholder='NUMBER'value=''type='number'>";
+let order_type="<select id='order_type'>"+"<option value='MARKET'>Market</option>"+"<option value='dhan.Limit'>LIMIT</option>";
+let product_type="<select id='transaction_type'>"+"<option value='INTRA'>INTRA</option>"+"<option value='DEL'>DEL</option>";
+let price="<input id='price'type='number'value=''type='number'>";
   return security_id+exchange_segment+transaction_type+quantity+order_type+product_type+transaction_type+price;
   }
+
+
+
