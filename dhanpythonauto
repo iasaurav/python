@@ -1,6 +1,14 @@
 function arst(a,b) {
+
+if (B === "BFO-OPT") {
+  result = "BSE_FNO";
+} else if (B === "NFO-OPT") {
+  result = "NSE_FNO";
+} else if (B === "MCX-OPT") {
+  result = "MCX";
+
   let security_id="<input id='security_id'value='"+a+"'readonly>";
-let exchange_segment="<input id='exchange_segment'value='"+b+"'readonly>";
+let exchange_segment="<input id='exchange_segment'value='"+result+"'readonly>";
 let transaction_type="<select id='transaction_type'>"+"<option value='BUY'>BUY</option>"+"<option value='SELL'>SELL</option>";
 let quantity="<input id='quantity'placeholder='NUMBER'value=''type='number'>";
 let order_type="<select id='order_type'>"+"<option value='MARKET'>Market</option>"+"<option value='dhan.Limit'>LIMIT</option>";
@@ -8,6 +16,8 @@ let product_type="<select id='transaction_type'>"+"<option value='INTRA'>INTRA</
 let price="<input id='price'type='number'value=''type='number'>";
   return security_id+exchange_segment+transaction_type+quantity+order_type+product_type+transaction_type+price;
   }
+
+
 
 
 
